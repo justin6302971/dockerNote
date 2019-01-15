@@ -1,5 +1,4 @@
 # docker node
-
-* manage images
+* manage images
 
     docker images
