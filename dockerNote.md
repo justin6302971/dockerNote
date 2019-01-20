@@ -1,7 +1,7 @@
 # Docker cheatsheat
 
 ## images
-----
+
 #### search available images on web    
     docker search IMAGENAME
 
@@ -16,7 +16,7 @@
 ----
 
 ## containers
-----
+
 #### show containers 
     docker ps
 ----
