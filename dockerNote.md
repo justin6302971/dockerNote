@@ -12,9 +12,13 @@
     docker run IMAGENAME
     ex: docker run -d -p 22345:80 --name=myweb1 nginx:latest
 
-
 #### show local images    
     docker images
+
+
+#### build images from dockerfile
+    docker build -t [userid/tagname] [dockerfilepath]
+
 ----
 
 ## containers
