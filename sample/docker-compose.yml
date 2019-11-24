@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  redis: &service_default
+    image: redis:${IMAGE_LABEL}
+    init: true
+    restart: always
+    container_name: redis
+    extra_hosts:
+      - 'redis:172.20.0.2'
+      - 'nginx:172.20.0.3'
+    networks:
+      dockernet:
+        ipv4_address: 172.20.0.2
+  nginx:
+    <<: *service_default
+    image: nginx:1.14-alpine
+    container_name: nginx
+    networks:
+      dockernet:
+        ipv4_address: 172.20.0.3
+    ports:
+      - 80:80
+      - 443:443
+networks:
+  dockernet:
+    ipam:
+      driver: bridge
+      config:
+        - subnet: 172.20.0.0/16
