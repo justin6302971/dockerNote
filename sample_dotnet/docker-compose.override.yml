@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+    webapi:
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=temppassword
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      volumes:
+        - dc-service-api-v:/var/lib/postgresql/data
+        - ~/.aspnet/https:/https:ro
+      ports:
+        - "5000:5000"
+        - "5001:5001"
+
+volumes:
+    dc-service-api-v:

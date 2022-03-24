@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+    webapi:
+        container_name: dc-service-webapi-dev
+        image: daily-challenge-service-webapi:alpine 
+        build:
+          context: .
+          dockerfile: ./Dockerfile
+        restart: on-failure
+        networks:
+            - dc-service-api-nw
+networks:
+    dc-service-api-nw:
+        name: dc-service-api-nw
